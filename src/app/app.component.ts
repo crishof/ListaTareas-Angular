@@ -11,24 +11,22 @@ import { TareasService } from './services/tareas.service';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
-  
-  
-  listaTareas : string[] = [];
-  nuevaTarea :string = '';
-  
+  listaTareas: string[] = [];
+  nuevaTarea: string = '';
+
   private _tareasService = inject(TareasService);
 
   ngOnInit(): void {
     this.listaTareas = this._tareasService.getTareas();
   }
 
-  agregarTarea(){
+  agregarTarea() {
     this._tareasService.agregarTarea(this.nuevaTarea);
     this.nuevaTarea = '';
     this.listaTareas = this._tareasService.getTareas();
   }
 
-  eliminarTarea(index : number){
+  eliminarTarea(index: number) {
     this._tareasService.eliminarTarea(index);
     this.listaTareas = this._tareasService.getTareas();
   }
