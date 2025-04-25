@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   listaTareas: string[] = [];
   nuevaTarea: string = '';
 
-  private _tareasService = inject(TareasService);
+  private readonly _tareasService = inject(TareasService);
 
   ngOnInit(): void {
     this.listaTareas = this._tareasService.getTareas();

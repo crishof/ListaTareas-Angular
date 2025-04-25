@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TareasService {
-  private localStorageKey = 'listaTareas';
+  private readonly localStorageKey = 'listaTareas';
 
   getTareas(): string[] {
     return (
-      JSON.parse(localStorage.getItem(this.localStorageKey) as string) || []
+      JSON.parse(localStorage.getItem(this.localStorageKey) as string) ?? []
     );
   }
 
